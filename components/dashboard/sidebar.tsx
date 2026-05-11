@@ -15,7 +15,7 @@ export function Sidebar() {
   return (
     <div className="w-64 border-r border-white/5 bg-zinc-950/50 hidden md:flex flex-col h-screen fixed left-0 top-0 z-40">
       <div className="h-16 flex items-center px-6 border-b border-white/5">
-        <Link href="/dashboard" className="flex items-center gap-2 group">
+        <Link href="/" className="flex items-center gap-2 group">
           <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center border border-white/20 group-hover:bg-white/20 transition-colors">
             <Sparkles className="w-4 h-4 text-white" />
           </div>

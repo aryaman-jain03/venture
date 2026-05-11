@@ -31,7 +31,7 @@ export function MobileNav() {
         {/* Visually hidden title for accessibility */}
         <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
         <div className="h-16 flex items-center px-6 border-b border-white/5 shrink-0">
-          <Link href="/dashboard" className="flex items-center gap-2 group" onClick={() => setOpen(false)}>
+          <Link href="/" className="flex items-center gap-2 group" onClick={() => setOpen(false)}>
             <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center border border-white/20">
               <Sparkles className="w-4 h-4 text-white" />
             </div>
