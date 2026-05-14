@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
   title: "VenturIQ | Premium Startup Idea Evaluation",
-  description: "Validate your startup idea before you build. A premium SaaS platform for founders.",
+  description: "From Idea to Launch. A premium SaaS platform for founders.",
 };
 
 export default function RootLayout({

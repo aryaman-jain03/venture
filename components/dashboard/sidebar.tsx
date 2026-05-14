@@ -3,10 +3,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { Sparkles, LogOut } from "lucide-react";
+import { Rocket, LogOut } from "lucide-react";
 import { mainNavItems, bottomNavItems } from "@/lib/config/navigation";
 import { useUser } from "@/hooks/use-user";
 import { logout } from "@/app/(auth)/actions";
+import { ProfileDropdown } from "@/components/dashboard/profile-dropdown";
 
 export function Sidebar() {
   const pathname = usePathname();
@@ -16,8 +17,8 @@ export function Sidebar() {
     <div className="w-64 border-r border-white/5 bg-zinc-950/50 hidden md:flex flex-col h-screen fixed left-0 top-0 z-40">
       <div className="h-16 flex items-center px-6 border-b border-white/5">
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center border border-white/20 group-hover:bg-white/20 transition-colors">
-            <Sparkles className="w-4 h-4 text-white" />
+          <div className="w-8 h-8 rounded-lg bg-indigo-500/20 flex items-center justify-center border border-indigo-500/30 group-hover:bg-indigo-500/30 transition-colors">
+            <Rocket className="w-4 h-4 text-indigo-400" />
           </div>
           <span className="font-bold text-lg tracking-tight text-white">VenturIQ</span>
         </Link>
@@ -71,18 +72,7 @@ export function Sidebar() {
       </div>
 
       <div className="p-4 border-t border-white/5">
-        <form action={logout}>
-          <button type="submit" className="w-full flex items-center gap-3 p-2 rounded-xl hover:bg-white/5 transition-colors text-left group">
-            <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold text-sm shrink-0">
-              {user?.initials || "??"}
-            </div>
-            <div className="flex-1 min-w-0">
-              <div className="text-sm font-medium text-white truncate">{user?.name || "Loading..."}</div>
-              <div className="text-xs text-zinc-500 truncate">{user?.plan || "..."}</div>
-            </div>
-            <LogOut className="w-4 h-4 text-zinc-500 ml-auto shrink-0 group-hover:text-white transition-colors" />
-          </button>
-        </form>
+        <ProfileDropdown user={user} variant="sidebar" />
       </div>
     </div>
   );

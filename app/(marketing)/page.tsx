@@ -41,8 +41,8 @@ export default function LandingPage() {
           
           <motion.div variants={fadeIn}>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight">
-              Validate Your Startup Idea <br className="hidden md:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 animate-gradient-x">Before You Build.</span>
+              From Idea To Launch <br className="hidden md:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 animate-gradient-x">Without The Guesswork.</span>
             </h1>
           </motion.div>
           
@@ -53,7 +53,7 @@ export default function LandingPage() {
           <motion.div variants={fadeIn} className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/signup">
               <Button size="lg" className="bg-white text-black hover:bg-zinc-200 rounded-full px-8 h-12 text-base font-medium shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:shadow-[0_0_50px_rgba(255,255,255,0.5)] transition-all duration-300 hover:scale-105 group">
-                Start Validating <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                Get Started <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
             <Link href="/features">
@@ -177,7 +177,7 @@ export default function LandingPage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { icon: BrainCircuit, title: "First-Time Founders", desc: "Don't know where to start? Get a step-by-step roadmap to validate your idea before risking your savings." },
+              { icon: BrainCircuit, title: "First-Time Founders", desc: "Don't know where to start? Get a step-by-step roadmap to take your idea to launch before risking your savings." },
               { icon: TrendingUp, title: "Serial Entrepreneurs", desc: "Speed up your iteration cycle. Validate new product concepts and spinout ideas in days, not months." },
               { icon: DollarSign, title: "Indie Hackers", desc: "Find profitable niches faster. Focus on willingness to pay and unit economics from day one." }
             ].map((audience, i) => (
@@ -288,7 +288,7 @@ export default function LandingPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-indigo-500/0 via-indigo-500/5 to-indigo-500/0 translate-y-[100%] group-hover:translate-y-[-100%] transition-transform duration-1000 ease-in-out" />
           
           <LayoutDashboard className="w-16 h-16 mx-auto mb-8 text-zinc-300 group-hover:text-indigo-400 transition-colors duration-300 group-hover:scale-110" />
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">Ready to validate your next big idea?</h2>
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">Ready to launch your next big idea?</h2>
           <p className="text-xl text-zinc-400 mb-12 max-w-2xl mx-auto">
             Join thousands of founders who use VenturIQ to build products people actually want. Start your free trial today.
           </p>

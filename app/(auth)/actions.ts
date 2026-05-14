@@ -52,7 +52,7 @@ export async function logout() {
   const supabase = await createClient();
   await supabase.auth.signOut();
   revalidatePath("/", "layout");
-  redirect("/login");
+  redirect("/");
 }
 
 export async function resetPassword(formData: FormData) {
@@ -83,4 +83,60 @@ export async function updatePassword(formData: FormData) {
   }
 
   redirect("/dashboard");
+}
+
+import { createClient as createSupabaseClient } from '@supabase/supabase-js';
+
+export async function updateProfile(formData: FormData) {
+  const supabase = await createClient();
+  const firstName = formData.get("firstName") as string;
+  const lastName = formData.get("lastName") as string;
+  const phone = formData.get("phone") as string;
+
+  if (!firstName || !lastName) {
+    return { error: "First and last name are required" };
+  }
+
+  const { error } = await supabase.auth.updateUser({
+    data: {
+      first_name: firstName,
+      last_name: lastName,
+      phone_number: phone || "",
+    }
+  });
+
+  if (error) {
+    return { error: error.message };
+  }
+
+  revalidatePath("/", "layout");
+  return { success: "Profile updated successfully" };
+}
+
+export async function deleteProfile() {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+
+  if (!user) {
+    return { error: "Not authenticated" };
+  }
+
+  if (!process.env.SUPABASE_SERVICE_ROLE_KEY) {
+    return { error: "Server misconfiguration: Missing Service Role Key" };
+  }
+
+  const supabaseAdmin = createSupabaseClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL || "",
+    process.env.SUPABASE_SERVICE_ROLE_KEY
+  );
+
+  const { error } = await supabaseAdmin.auth.admin.deleteUser(user.id);
+
+  if (error) {
+    return { error: error.message };
+  }
+
+  await supabase.auth.signOut();
+  revalidatePath("/", "layout");
+  redirect("/");
 }

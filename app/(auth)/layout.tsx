@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Sparkles } from "lucide-react";
+import { Rocket } from "lucide-react";
 
 export default function AuthLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -13,8 +13,8 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
       <div className="w-full max-w-md p-6">
         <div className="flex justify-center mb-8">
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center border border-white/20 group-hover:bg-white/20 transition-colors">
-              <Sparkles className="w-5 h-5 text-white" />
+            <div className="w-10 h-10 rounded-xl bg-indigo-500/20 flex items-center justify-center border border-indigo-500/30 group-hover:bg-indigo-500/30 transition-colors">
+              <Rocket className="w-5 h-5 text-indigo-400" />
             </div>
             <span className="font-bold text-2xl tracking-tight text-white">VenturIQ</span>
           </Link>

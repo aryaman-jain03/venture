@@ -10,6 +10,7 @@ export interface User {
   initials: string;
   email: string;
   plan: string;
+  phone?: string;
 }
 
 export function useUser() {
@@ -39,12 +40,15 @@ export function useUser() {
         .join("")
         .toUpperCase() || "U";
 
+      const phone = authUser.user_metadata?.phone_number || "";
+
       setUser({
         id: authUser.id,
         name,
         initials,
         email: authUser.email || "",
         plan: "Free Plan", // Can fetch from profiles table later
+        phone,
       });
       setIsLoading(false);
     }
